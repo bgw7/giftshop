@@ -3,7 +3,7 @@ import { HttpTestingController, HttpClientTestingModule } from '@angular/common/
 import { TestBed } from '@angular/core/testing';
 import { Chef } from '../model/Chef';
 
-describe('ChefService', () => {
+fdescribe('ChefService', () => {
 
     let service: ChefService;
     let httpMock: HttpTestingController;
@@ -26,10 +26,23 @@ describe('ChefService', () => {
         expect(service).toBeTruthy();
     });
 
+    it('should GET an array of Chefs', done => {
+        const expectedChef = <Chef[]>[{ id: 1, name: 'joe' }, { id: 2, name: 'time' }];
+
+        service.getChefs().subscribe(json => {
+            expect(json).toEqual(expectedChef);
+            done();
+        });
+
+        const req = httpMock.expectOne(`${service.API_URL}`);
+        expect(req.request.method).toEqual('GET');
+        req.flush(expectedChef);
+    });
+
     it('should GET Chef by ID', done => {
         const expectedChef = <Chef>{id: 1, name: 'joe'};
 
-        service.loadChef(1).subscribe(json => {
+        service.getChefById(1).subscribe(json => {
             expect(json).toEqual(expectedChef);
             done();
         });

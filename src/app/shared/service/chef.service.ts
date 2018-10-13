@@ -9,7 +9,11 @@ export class ChefService {
 
     constructor(private http: HttpClient){}
 
-    loadChef(id: number): Observable<Chef> {
+    getChefs(): Observable<Chef[]> {
+        return this.http.get<Chef[]>(`${this.API_URL}`);
+    }
+
+    getChefById(id: number): Observable<Chef> {
         return this.http.get<Chef>(`${this.API_URL}/${id}`);
     }
 

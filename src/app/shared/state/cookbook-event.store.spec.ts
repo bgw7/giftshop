@@ -23,7 +23,7 @@ describe('CookbookEventStore', () => {
             providers: [
                 CookbookEventStore,
                 mock(ChefStore, mockChefStore),
-                mock(ChefService, { loadChef: () => of(CHEF) })
+                mock(ChefService, { getChefById: () => of(CHEF) })
             ]
         });
         CHEF = { id: CHEF_ID, name: 'tim' };

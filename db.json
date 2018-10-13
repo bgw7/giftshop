@@ -1,0 +1,24 @@
+{
+    "chefs": [
+        {
+            "id": 1,
+            "name": "joe"
+        },
+        {
+            "id": 2,
+            "name": "bob"
+        },
+        {
+            "id": 3,
+            "name": "tim"
+        },
+        {
+            "id": 4,
+            "name": "nick"
+        },
+        {
+            "id": 5,
+            "name": "jake"
+        }
+    ]
+}

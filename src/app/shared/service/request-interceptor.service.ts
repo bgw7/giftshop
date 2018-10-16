@@ -14,6 +14,7 @@ export class RequestInterceptorService implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (request.headers.get('server')) {
+      console.log(request);
       if (request.url.includes('/api/') && request.headers.get('server').includes('GitHub.com')) {
         let jsonServerUrl = request.url.replace('/api/', '/bgw7/ng-redux/');
       request = request.clone({

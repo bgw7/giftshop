@@ -9,7 +9,6 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint ng-redux",
-    "deploy": "gh-pages -d dist",
     "cuke": "cucumber-js features/**/*.feature --require features/support/**/*.ts --require features/steps/**/*.ts --require features/actions/**/*.ts --require features/pages/**/*.ts --require-module ts-node/register --format node_modules/cucumber-pretty"
   },
   "private": true,

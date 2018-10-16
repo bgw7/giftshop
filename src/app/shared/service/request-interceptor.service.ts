@@ -22,6 +22,14 @@ export class RequestInterceptorService implements HttpInterceptor {
       });
       console.log(request);
       }
+
+      if (request.url.includes('/assets/il8n/') && request.headers.get('server').includes('GitHub.com')) {
+        let translateUrl = request.url.replace('/assets/il8n/', '/ng-redux/assets/il8n/');
+      request = request.clone({
+        url: translateUrl
+      });
+      console.log(request);
+      }
     }
     return next.handle(request);
   }

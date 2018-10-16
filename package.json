@@ -9,6 +9,7 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint ng-redux",
+    "deploy": "gh-pages -d dist",
     "cuke": "cucumber-js features/**/*.feature --require features/support/**/*.ts --require features/steps/**/*.ts --require features/actions/**/*.ts --require features/pages/**/*.ts --require-module ts-node/register --format node_modules/cucumber-pretty"
   },
   "private": true,
@@ -27,6 +28,7 @@
     "@ngx-translate/http-loader": "^3.0.1",
     "core-js": "^2.5.4",
     "eventsource": "^1.0.7",
+    "gh-pages": "^2.0.1",
     "lodash": "^4.17.11",
     "puppeteer": "^1.8.0",
     "rxjs": "^6.1.0",
@@ -44,6 +46,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.9.4",
     "@types/puppeteer": "^1.6.4",
+    "angular-cli-ghpages": "^0.5.3",
     "angular-tslint-rules": "^1.5.0",
     "body-parser": "^1.18.3",
     "chai": "^4.1.2",

@@ -6,6 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModuleWithProviders } from '@angular/compiler/src/core';
 import { CookbookEventService } from './service/cookbook-event.service';
 import { CookbookEventStore } from './state/cookbook-event.store';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RequestInterceptorService } from './service/request-interceptor.service';
 
 @NgModule({
     imports: [
@@ -26,7 +28,12 @@ export class SharedModule {
             providers: [
                 CookbookEventService,
                 CookbookEventStore,
-                ChefService
+                ChefService,
+                {
+                    provide: HTTP_INTERCEPTORS,
+                    useClass: RequestInterceptorService,
+                    multi: true
+                  }
             ]
         };
     }

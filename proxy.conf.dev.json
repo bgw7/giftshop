@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "http://my-json-server.typicode.com/bgw7/ng-redux",
+    "pathRewrite": { "^/api": "" },
+    "logLevel": "debug",
+    "secure": false,
+    "changeOrigin": true
+  }
+}
+  

@@ -17,15 +17,15 @@ export class RequestInterceptorService implements HttpInterceptor {
     this.ngZone.run(() => {
       this.href = window.location.href;
     });
-      if (this.href.includes('https://bgw7.github.io/api')) {
+      if (this.href.includes('https://bgw7.github.io/ng-redux/')) {
         let jsonServerUrl = this.href.replace('/api/', '/bgw7/ng-redux/');
       request = request.clone({
         url: `http://my-json-server.typicode.com${jsonServerUrl}`
       });
       }
 
-      if (this.href.includes('https://bgw7.github.io/assets/il8n/')) {
-        let translateUrl = request.url.replace('https://bgw7.github.io/', 'https://bgw7.github.io/ng-redux/');
+      if (this.href.includes('https://bgw7.github.io/ng-redux/')) {
+        let translateUrl = request.url.replace('/assets/il8n/', '/ng-redux/assets/il8n/');
       request = request.clone({
         url: translateUrl
       });

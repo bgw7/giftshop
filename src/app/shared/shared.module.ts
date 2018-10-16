@@ -18,7 +18,7 @@ import { RequestInterceptorService } from './service/request-interceptor.service
         CommonModule,
         TranslateModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
     ]
 })
 export class SharedModule {

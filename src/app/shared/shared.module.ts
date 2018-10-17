@@ -7,7 +7,7 @@ import { ModuleWithProviders } from '@angular/compiler/src/core';
 import { CookbookEventService } from './service/cookbook-event.service';
 import { CookbookEventStore } from './state/cookbook-event.store';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { RequestInterceptorService } from './service/request-interceptor.service';
+import { GithubPagesInterceptorService } from './service/github-pages-interceptor.service';
 
 @NgModule({
     imports: [
@@ -31,7 +31,7 @@ export class SharedModule {
                 ChefService,
                 {
                     provide: HTTP_INTERCEPTORS,
-                    useClass: RequestInterceptorService,
+                    useClass: GithubPagesInterceptorService,
                     multi: true
                   }
             ]

@@ -1,15 +1,10 @@
 import { NgZone } from '@angular/core';
 import { Injectable } from '@angular/core';
-import {
-  HttpRequest,
-  HttpHandler,
-  HttpEvent,
-  HttpInterceptor
-} from '@angular/common/http';
+import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class RequestInterceptorService implements HttpInterceptor {
+export class GithubPagesInterceptorService implements HttpInterceptor {
  href: string = '';
   constructor(private ngZone: NgZone) {}
 
@@ -17,6 +12,7 @@ export class RequestInterceptorService implements HttpInterceptor {
     this.ngZone.run(() => {
       this.href = window.location.href;
     });
+
     if (this.href.includes('https://bgw7.github.io/ng-redux/')) {
       if (request.url.includes('/api/')) {
         let jsonServerUrl = request.url.replace('/api/', '/bgw7/ng-redux/');
@@ -26,13 +22,13 @@ export class RequestInterceptorService implements HttpInterceptor {
       }
 
       if (request.url.includes('/assets/il8n/')) {
-        let translateUrl = request.url.replace('/assets/il8n/', '/ng-redux/assets/il8n/');
+        let translateFileUrl = request.url.replace('/assets/il8n/', '/ng-redux/assets/il8n/');
       request = request.clone({
-        url: translateUrl
+        url: translateFileUrl
       });
       }
     }
-      console.log('new commit: ', request);
+
     return next.handle(request);
   }
 }

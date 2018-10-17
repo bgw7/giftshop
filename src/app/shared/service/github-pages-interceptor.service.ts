@@ -13,7 +13,7 @@ export class GithubPagesInterceptorService implements HttpInterceptor {
       this.href = window.location.href;
     });
 
-    if (this.href.includes('https://bgw7.github.io/ng-redux/')) {
+    if (this.href.includes('https://bgw7.github.io/')) {
       if (request.url.includes('/api/')) {
         let jsonServerUrl = request.url.replace('/api/', '/bgw7/ng-redux/');
       request = request.clone({
@@ -22,7 +22,7 @@ export class GithubPagesInterceptorService implements HttpInterceptor {
       }
 
       if (request.url.includes('/assets/il8n/')) {
-        let translateFileUrl = request.url.replace('/assets/il8n/', '/ng-redux/assets/il8n/');
+        let translateFileUrl = request.url.replace('/assets/il8n/', '/assets/il8n/');
       request = request.clone({
         url: translateFileUrl
       });

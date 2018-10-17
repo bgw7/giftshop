@@ -32,7 +32,7 @@ export class RequestInterceptorService implements HttpInterceptor {
       });
       }
     }
-      console.log(request);
+      console.log('new commit: ', request);
     return next.handle(request);
   }
 }

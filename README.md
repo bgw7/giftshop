@@ -1,6 +1,6 @@
 # AngularRedux
 
-This Angular project is an implementation of the [Redux pattern](https://redux.js.org/) following the [three principles](https://redux.js.org/introduction/threeprinciples) using [ReactiveX/RxJS](https://github.com/ReactiveX/rxjs).
+This Angular project is an implementation of the [Redux pattern](https://redux.js.org/) following these [three principles](https://redux.js.org/introduction/threeprinciples) using [ReactiveX/RxJS](https://github.com/ReactiveX/rxjs).
 
 [Services](https://github.com/bgw7/ng-redux/tree/master/src/app/shared/service) send/receive data used by the app. This data is represented by [models](https://github.com/bgw7/ng-redux/tree/master/src/app/shared/model) and presisted by [stores](https://github.com/bgw7/ng-redux/tree/master/src/app/shared/state).
 

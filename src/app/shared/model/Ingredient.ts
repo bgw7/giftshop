@@ -7,4 +7,5 @@ export interface ChefIngredient extends Ingredient {
     id: number;
     name: string;
     quantity: number;
+    chefId: number;
 }

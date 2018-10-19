@@ -1,3 +1,4 @@
+import { ChefIngredientsService } from './service/chef-ingredients.service';
 import { ChefService } from './service/chef.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgModule } from "@angular/core";
@@ -29,6 +30,7 @@ export class SharedModule {
                 CookbookEventService,
                 CookbookEventStore,
                 ChefService,
+                ChefIngredientsService,
                 {
                     provide: HTTP_INTERCEPTORS,
                     useClass: GithubPagesInterceptorService,

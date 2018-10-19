@@ -2,23 +2,171 @@
     "chefs": [
         {
             "id": 1,
-            "name": "joe"
+            "name": "joe",
+            "chefIngredients": [1, 2, 3, 4]
         },
         {
             "id": 2,
-            "name": "bob"
+            "name": "bob",
+            "chefIngredients": [5, 6, 7, 8]
         },
         {
             "id": 3,
-            "name": "tim"
+            "name": "tim",
+            "chefIngredients": [9, 10, 11, 12]
         },
         {
             "id": 4,
-            "name": "nick"
+            "name": "nick",
+            "chefIngredients": [13, 14, 15, 16]
+        }
+    ],
+    "ingredients": [
+        {
+            "id": 1,
+            "name": "garlic"
+        },
+        {
+            "id": 2,
+            "name": "bell pepper"
+        },
+        {
+            "id": 3,
+            "name": "sugar"
+        },
+        {
+            "id": 4,
+            "name": "chicken"
         },
         {
             "id": 5,
-            "name": "jake"
+            "name": "ginger"
+        },
+        {
+            "id": 6,
+            "name": "edamame"
+        },
+        {
+            "id": 7,
+            "name": "brocolli"
+        },
+        {
+            "id": 8,
+            "name": "chicken"
+        },
+        {
+            "id": 9,
+            "name": "thyme"
+        },
+        {
+            "id": 10,
+            "name": "oregano"
+        },
+        {
+            "id": 11,
+            "name": "scallion"
+        },
+        {
+            "id": 12,
+            "name": "chicken"
+        },
+        {
+            "id": 13,
+            "name": "butter"
+        },
+        {
+            "id": 14,
+            "name": "potato"
+        },
+        {
+            "id": 15,
+            "name": "carrot"
+        },
+        {
+            "id": 16,
+            "name": "steak"
+        }
+    ],
+    "chefIngredients": [
+        {
+            "id": 1,
+            "ingredientId": 1,
+            "quantity": 2
+        },
+        {
+            "id": 2,
+            "ingredientId": 2,
+            "quantity": 2
+        },
+        {
+            "id": 3,
+            "ingredientId": 3,
+            "quantity": 2
+        },
+        {
+            "id": 4,
+            "ingredientId": 4,
+            "quantity": 2
+        },
+        {
+            "id": 5,
+            "ingredientId": 5,
+            "quantity": 2
+        },
+        {
+            "id": 6,
+            "ingredientId": 6,
+            "quantity": 2
+        },
+        {
+            "id": 7,
+            "ingredientId": 7,
+            "quantity": 2
+        },
+        {
+            "id": 8,
+            "ingredientId": 8,
+            "quantity": 2
+        },
+        {
+            "id": 9,
+            "ingredientId": 9,
+            "quantity": 2
+        },
+        {
+            "id": 10,
+            "ingredientId": 10,
+            "quantity": 2
+        },
+        {
+            "id": 11,
+            "ingredientId": 11,
+            "quantity": 2
+        },
+        {
+            "id": 12,
+            "ingredientId": 12,
+            "quantity": 2
+        },
+        {
+            "id": 13,
+            "ingredientId": 13,
+            "quantity": 2
+        },
+        {
+            "id": 14,
+            "ingredientId": 14,
+            "quantity": 2
+        },
+        {
+            "id": 15,
+            "ingredientId": 15,
+            "quantity": 2
+        },
+        {
+            "id": 16,
+            "ingredientId": 16,
+            "quantity": 2
         }
     ]
 }

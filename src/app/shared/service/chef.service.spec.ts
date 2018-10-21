@@ -3,7 +3,7 @@ import { HttpTestingController, HttpClientTestingModule } from '@angular/common/
 import { TestBed } from '@angular/core/testing';
 import { Chef } from '../model/Chef';
 
-fdescribe('ChefService', () => {
+describe('ChefService', () => {
 
     let service: ChefService;
     let httpMock: HttpTestingController;

@@ -6,7 +6,7 @@ import { Chef } from '../model/Chef';
 export class MultipleChefsStore extends Store<Chef[]> {
     constructor(){
         super(<Chef[]>[], {
-            LOADED: (state: Chef[], action: Action): Chef[] => ({ ...action.payload })
+            LOADED: (state: Chef[], action: Action): Chef[] => [...action.payload]
         });
     }
 }

@@ -27,7 +27,7 @@ describe('CookbookEventStore', () => {
             ]
         });
         CHEF = { id: CHEF_ID, name: 'tim' };
-        mockEvent = { Chef: { id: 23, name: 'rob' } };
+        mockEvent = { Chef: { id: 23, name: 'rob', inventory: null } };
         mockChefStore.complete = () => {};
         mockChefStore.getValue = () => CHEF;
         store = TestBed.get(CookbookEventStore);

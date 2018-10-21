@@ -4,7 +4,7 @@ import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/c
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class GithubPagesInterceptorService implements HttpInterceptor {
+export class GithubPagesInterceptor implements HttpInterceptor {
  href: string = '';
   constructor(private ngZone: NgZone) {}
 

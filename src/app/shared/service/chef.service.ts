@@ -7,7 +7,7 @@ import { Observable, of, forkJoin } from 'rxjs';
 export class ChefService {
     readonly API_URL = '/api/chefs'
 
-    constructor(private http: HttpClient){}
+    constructor(private http: HttpClient) {}
 
     getChefs(): Observable<Chef[]> {
         return this.http.get<Chef[]>(`${this.API_URL}`);

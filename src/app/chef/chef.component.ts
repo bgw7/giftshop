@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 import { mapAction } from '../shared/state/store';
 import { Chef } from '../shared/model/Chef';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
+import * as _ from 'lodash';
+import { IngredientsService } from '../shared/service/ingredients.service';
+import { IngredientsStore } from '../shared/state/ingredients.store';
 
 @Component({
   selector: 'app-chef',
@@ -17,19 +19,22 @@ import { Observable } from 'rxjs';
   providers: [
     ChefStore,
     ChefIngredientsStore,
+    IngredientsStore,
     MultipleChefsStore
   ]
 })
 export class ChefComponent implements OnInit {
 
   chefRequestForm: FormGroup;
-  chefArray = [];
+  chefArray = <Chef[]>[];
   chef: Chef;
   alive: boolean;
 
   constructor(private formBuilder: FormBuilder,
               private chefService: ChefService,
               private chefStore: ChefStore,
+              private ingredientService: IngredientsService,
+              private ingredientStore: IngredientsStore,
               private chefIngredientsStore: ChefIngredientsStore,
               private chefIngredientsService: ChefIngredientsService,
               private multipleChefsStore: MultipleChefsStore) {}
@@ -41,16 +46,34 @@ export class ChefComponent implements OnInit {
     });
 
     this.chefService.getChefs().pipe(mapAction('LOADED')).subscribe(this.multipleChefsStore);
-    this.multipleChefsStore.pipe(takeWhile(() => this.alive)).subscribe(array => this.chefArray = array);
+    this.multipleChefsStore.pipe(takeWhile(() => this.alive)).subscribe(array => {
+      this.chefArray = array;
+    });
+
     this.chefStore.pipe(takeWhile(() => this.alive)).subscribe(chef => {
       if(chef.id) {
         this.chefIngredientsService.getChefIngredientsById(chef.id).pipe(mapAction('LOADED')).subscribe(this.chefIngredientsStore);
       }
       this.chef = chef;
     });
+    
     this.chefIngredientsStore.pipe(takeWhile(() => this.alive)).subscribe(inventory => {
       if (this.chef) {
         this.chef.inventory = inventory;
+        let allIngredientIds = [];
+        inventory.forEach(next => allIngredientIds.push(next.ingredientId));
+        this.ingredientService.getIngredientsById(allIngredientIds).pipe(mapAction('LOADED')).subscribe(this.ingredientStore);
+      }
+    });
+
+    this.ingredientStore.pipe(takeWhile(() => this.alive)).subscribe(array => {
+      if(this.chef) {
+        if (this.chef.inventory.length) {
+          this.chef.inventory.forEach((ingredient, index) => {
+            let storeIngredient = _.find(array, {id: ingredient.id});
+            this.chef.inventory[index].name = storeIngredient.name;
+          });
+        }
       }
     });
   }

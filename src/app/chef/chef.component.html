@@ -1,19 +1,21 @@
-    <ng-container *ngIf="chefArray.length">
-    <li *ngFor= "let chef of chefArray; index as i; first as isFirst">
-        {{i}}/{{chefArray.length}}. {{chef}} <span *ngIf="isFirst">default</span>
-     </li>
+
+<li *ngFor= "let chef of chefArray;">
+    <span>{{ chef.name }}</span>
+    </li>
+
+
+    <form (ngSubmit)="submitChefForm()" autocomplete="off" [formGroup]="chefRequestForm">
+        <div class="form-group">
+            <input type="number" formControlName="chefIdControl">
+            <input type="submit" value="Get">
+        </div>
+    </form>
+
+
+    <ng-container *ngIf="chef.id && chef.inventory">
+    <ng-container *ngIf="chef.inventory.length">
+        <li *ngFor= "let inven of chef.inventory;">
+            <span>{{inven.name}}</span>
+        </li>
     </ng-container>
-
-     <form (ngSubmit)="submitChefForm()" autocomplete="off" [formGroup]="chefRequestForm">
-         <div class="form-group">
-             <input type="number" formControlName="chefIdControl">
-             <input type="submit" value="Get">
-         </div>
-     </form>
-
-
-     <ng-container *ngIf="chef.id && chef.inventory.length">
-        <li *ngFor= "let inventory of chef.inventory; index as i;">
-             <span>{{chef.inventory[i].name}}</span>
-         </li>
-        </ng-container>
+</ng-container>

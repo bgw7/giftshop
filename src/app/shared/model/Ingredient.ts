@@ -5,6 +5,7 @@ export interface Ingredient {
 
 export interface ChefIngredient extends Ingredient {
     id: number;
+    ingredientId: number;
     name: string;
     quantity: number;
     chefId: number;

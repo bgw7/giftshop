@@ -44,12 +44,6 @@ Every event is handled by the store/action defined in the side effects.
 ## Example Server
 Run `npm run serve-local` along with this [java-spring application](https://github.com/bgw7/cookbook) to provide local back-end with supporting endpoints for this Angular application.
 
-
-## Development server
-
-Run `npm run serve-dev` for a dev server using the [db.json data](https://github.com/bgw7/bgw7.github.io/blob/dev/db.json). Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
@@ -70,6 +64,10 @@ Set **headless** to false to watch the tests run locally
 this.browser = await this.driver.launch({ headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] });
 ```
 
+## Local server
+
+Run `npm run serve-local` serves static content on `http://localhost:4200/`. '/api' requests will be proxied to a json-server on `http://localhost:3000` using the [db.json data](https://github.com/bgw7/bgw7.github.io/blob/dev/db.json).
+
 ## Development server
 
-Run `npm run serve-dev` for a dev server using the [db.json data](https://github.com/bgw7/bgw7.github.io/blob/dev/db.json). Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm run serve-dev` serves static content on `http://localhost:4200/`. '/api' requests will be proxied to a public json-server at `http://my-json-server.typicode.com/bgw7/bgw7.github.io`.

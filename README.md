@@ -12,7 +12,7 @@ export type Action = {
 };
 ```
 
-State of a store is updated with Reducer. Reducers are pure functions that always produce the nextState using current state and actions.
+State of a store is updated with Reducers. Reducers are pure functions that always produce the nextState using current state and actions.
 ```javascript
 export type Reducer<T> = (state: T, action: Action) => T;
 const LOADED: Reducer<Chef> = (state: Chef, action: Action): Chef => ({ ...action.payload });
@@ -20,7 +20,7 @@ const LOADED: Reducer<Chef> = (state: Chef, action: Action): Chef => ({ ...actio
 
 ## Handling Live Data with Stores
 
-[Event-Service](https://github.com/bgw7/bgw7.github.io/blob/dev/src/app/shared/service/cookbook-event.service.ts) makes an EventSource connection to receive push events from a back-end server. Any event from this service can change any data model handled by the stores. To ensure every store remains current during the EventSource connection the [Event-Store](https://github.com/bgw7/bgw7.github.io/blob/dev/src/app/shared/state/cookbook-event.store.ts) handles these side effects.
+[Event-Service](https://github.com/bgw7/bgw7.github.io/blob/dev/src/app/shared/service/cookbook-event.service.ts) makes an EventSource connection to receive push events from a back-end server. Any event from this service can affect any data model handled by the stores. To ensure every store remains current during the EventSource connection, the [Event-Store](https://github.com/bgw7/bgw7.github.io/blob/dev/src/app/shared/state/cookbook-event.store.ts) handles these side effects.
 
 Models expected to be changed by the Events are defined as side effects.
 ```javascript
@@ -32,7 +32,7 @@ this.sideEffects = {
         };
 ```
 
-Every event is then filterd to the side effect configured and handled by the defined store/action.
+Every event is handled by the store/action defined in the side effects.
 ```javascript
         this.pipe(
             takeWhile(() => this.alive),

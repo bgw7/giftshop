@@ -3,11 +3,11 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslateModule, TranslateModuleConfig, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { HttpClient } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { ChefComponent } from './chef/chef.component';
+import { ProfileComponent } from './profile/profile.component';
 
 export function translateFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, '/assets/il8n/', '.json');
@@ -24,12 +24,12 @@ const IL8N_CONFIG = <TranslateModuleConfig> {
 @NgModule({
   declarations: [
     AppComponent,
-    ChefComponent
+    ChefComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    NgbModule,
     SharedModule.forRoot(),
     TranslateModule.forRoot(IL8N_CONFIG)
   ],

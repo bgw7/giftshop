@@ -15,7 +15,7 @@ import { IngredientsStore } from '../shared/state/ingredients.store';
 @Component({
   selector: 'app-chef',
   templateUrl: './chef.component.html',
-  styleUrls: ['./chef.component.css'],
+  styleUrls: ['./chef.component.scss'],
   providers: [
     ChefStore,
     ChefIngredientsStore,

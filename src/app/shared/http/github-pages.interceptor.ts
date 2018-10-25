@@ -15,7 +15,7 @@ export class GithubPagesInterceptor implements HttpInterceptor {
 
     if (this.href.includes('https://bgw7.github.io/')) {
       if (request.url.includes('/api/')) {
-        let jsonServerUrl = request.url.replace('/api/', '/bgw7/bgw7.github.io/');
+        let jsonServerUrl = request.url.replace('/api/', '/bgw7/angular-redux/');
       request = request.clone({
         url: `https://my-json-server.typicode.com${jsonServerUrl}`
       });

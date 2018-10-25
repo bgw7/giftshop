@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { HttpClient } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { ChefComponent } from './chef/chef.component';
-import { ProfileComponent } from './profile/profile.component';
 
 export function translateFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, '/assets/il8n/', '.json');
@@ -24,8 +23,7 @@ const IL8N_CONFIG = <TranslateModuleConfig> {
 @NgModule({
   declarations: [
     AppComponent,
-    ChefComponent,
-    ProfileComponent
+    ChefComponent
   ],
   imports: [
     BrowserModule,

@@ -71,3 +71,22 @@ Run `npm run serve-local` serves static content on `http://localhost:4200/`. '/a
 ## Development server
 
 Run `npm run serve-dev` serves static content on `http://localhost:4200/`. '/api' requests will be proxied to a public json-server at `http://my-json-server.typicode.com/bgw7/bgw7.github.io`.
+
+
+
+# Dockerized
+
+## Build docker image
+
+```
+$ docker build -t angular-build:prod .
+```
+
+## Run the container
+
+```
+$ docker run -d -p 8080:8080 angular-build:prod
+```
+
+
+The app will be available at http://localhost:8080

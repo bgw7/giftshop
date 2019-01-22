@@ -7,7 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng-redux';
+  title = 'giftshop';
 
   constructor(translateService: TranslateService,
               @Inject(LOCALE_ID) locale: string) {

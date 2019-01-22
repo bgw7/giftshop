@@ -9,6 +9,8 @@
     "serve-dev": "ng serve --proxy-config proxy.conf.dev.json",
     "start": "ng serve",
     "build": "ng build",
+    "build-gh": "ng build --prod --base-href https://bgw7.github.io/giftshop/",
+    "deploy-gh": "cp db.json dist/ && npx angular-cli-ghpages --branch master",
     "test": "ng test",
     "lint": "ng lint giftshop",
     "cuke": "cucumber-js features/**/*.feature --require features/support/**/*.ts --require features/steps/**/*.ts --require features/actions/**/*.ts --require features/pages/**/*.ts --require-module ts-node/register --format node_modules/cucumber-pretty"

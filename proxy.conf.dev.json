@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "http://my-json-server.typicode.com/bgw7/angular-redux",
+    "target": "http://my-json-server.typicode.com/bgw7/giftshop",
     "pathRewrite": { "^/api": "" },
     "logLevel": "debug",
     "secure": false,

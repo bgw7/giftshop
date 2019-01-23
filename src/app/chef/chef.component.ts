@@ -1,3 +1,4 @@
+import { GithubService } from './../shared/service/github.service';
 import { ChefIngredientsService } from './../shared/service/chef-ingredients.service';
 import { ChefIngredientsStore } from './../shared/state/chef-ingredients.store';
 import { takeWhile } from 'rxjs/operators';
@@ -29,6 +30,8 @@ export class ChefComponent implements OnInit {
   chefArray = <Chef[]>[];
   chef: Chef;
   alive: boolean;
+  sha: string;
+  content: {};
 
   constructor(private formBuilder: FormBuilder,
               private chefService: ChefService,
@@ -37,10 +40,13 @@ export class ChefComponent implements OnInit {
               private ingredientStore: IngredientsStore,
               private chefIngredientsStore: ChefIngredientsStore,
               private chefIngredientsService: ChefIngredientsService,
-              private multipleChefsStore: MultipleChefsStore) {}
+              private multipleChefsStore: MultipleChefsStore,
+              private githubService: GithubService) {}
 
   ngOnInit() {
     this.alive = true;
+    this.sha =  '';
+    this.content = {};
     this.chefRequestForm = this.formBuilder.group({
       chefIdControl: ['', Validators.required]
     });
@@ -75,6 +81,13 @@ export class ChefComponent implements OnInit {
           });
         }
       }
+    });
+  }
+
+  getFile(): void {
+    this.githubService.getDbJsonContent().subscribe(v => {
+      console.log(v);
+      this.githubService.updateFile(v).subscribe(console.log);
     });
   }
 

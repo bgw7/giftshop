@@ -10,6 +10,7 @@ import { CookbookEventStore } from './state/cookbook-event.store';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { GithubPagesInterceptor } from './http/github-pages.interceptor';
 import { IngredientsService } from './service/ingredients.service';
+import { GithubService } from './service/github.service';
 
 @NgModule({
     imports: [
@@ -33,6 +34,7 @@ export class SharedModule {
                 ChefService,
                 ChefIngredientsService,
                 IngredientsService,
+                GithubService,
                 {
                     provide: HTTP_INTERCEPTORS,
                     useClass: GithubPagesInterceptor,
